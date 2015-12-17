@@ -1,6 +1,13 @@
 import piglow
 from time import sleep
 
+# try to find a better way of performing this loop
+# try to find a better way of addressing each LED, is there a way to simplify the below code
+# consider adding in functionality to turn on and turn off 
+# once the code is running there is no way to shut off the LEDs unless you kill the process
+# ideally there should be a way for the user to provide an input to stop the LED cycles
+# once the user selects stop, there should be a command to turn off all the LEDs
+
 piglow.auto_update = True
 
 # Addressing Each LED Syntax Below:
