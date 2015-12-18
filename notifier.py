@@ -30,4 +30,5 @@ def mail(checker):
 
 #need to replace winsound.Beep with piglow functionality
 #set the piglow functionality to pulse red when email is present (newEmail==1)
+#Pulse info can be found here: https://github.com/benleb/PyGlow
 #consider also adding other glow colors for other states, extend functionality to more than email checker
