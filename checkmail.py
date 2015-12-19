@@ -1,28 +1,26 @@
 #!/usr/bin/env python
 #Code found on Adafruit.com @ https://learn.adafruit.com/raspberry-pi-e-mail-notifier-using-leds/overview
 #Requires PyGlow library: https://github.com/benleb/PyGlow
-#Requires IPAMClient library (not sure if separate install required)
+#Requires IMAPClient library (not sure if separate install required)
 
 from imapclient import IMAPClient
 from PyGlow import PyGlow
 import time
 
-#Set DEBUG to False if you want nothing logged to the console.
-DEBUG = True
+DEBUG = True # Set DEBUG to False if you want nothing logged to the console.
 
 HOSTNAME = 'imap.gmail.com'
-USERNAME = 'your username here'
-PASSWORD = 'your password here'
-MAILBOX = 'Inbox'
+USERNAME = 'your username here' # Your GMAIL username - leave out the @gmail.com portion.
+PASSWORD = 'your password here' # Your GMAIL password - This is plain text. If someone can see this file, they can see your password.
+MAILBOX = 'Inbox' # Which mailbox the job checks. By default leave it to Inbox, unless you want it to check another folder.
 
-NEWMAIL_OFFSET = 0   # my unread messages never goes to zero, yours might
-MAIL_CHECK_FREQ = 60 # check mail every 60 seconds
+NEWMAIL_OFFSET = 0   # Count in Inbox. If you leave unread in your inbox a lot, set this value to above 0.
+MAIL_CHECK_FREQ = 60 # This value is in seconds
 
-#PyGlow Global Variables:
+# PyGlow Global Variables:
 b = 128
 s = 1000
-pyglow = PyGlow(brightness=int(b), speed=int(s), pulse=True)
-
+pyglow = PyGlow(brightness=int(b), speed=int(s), pulse=True, pulse_dir=UP) #pulse_dir=UP might have to be pulse_dir="UP"... if errors are thrown.
 
 def loop():
     server = IMAPClient(HOSTNAME, use_uid=True, ssl=True)
@@ -42,7 +40,7 @@ def loop():
     if newmails > NEWMAIL_OFFSET:
         pyglow.color(6)
     else:
-        pyglow.all(0)
+        pyglow.all(0) #shuts off all LEDs
 
     time.sleep(MAIL_CHECK_FREQ)
 
@@ -51,11 +49,8 @@ if __name__ == '__main__':
         print 'Press Ctrl-C to quit.'
         while True:
             loop()
-#    finally:
-#        GPIO.cleanup()
-# Not sure what to do with the Finally + GPIO.cleanup yet...
-
-
+    finally:
+        pyglow.all(0) #Kills all LEDs if you Ctrl-C the program.
 
 
 #The PyGlow() object can accept four optional parameters:
