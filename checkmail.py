@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 #Code found on Adafruit.com @ https://learn.adafruit.com/raspberry-pi-e-mail-notifier-using-leds/overview
+#Requires PyGlow library: https://github.com/benleb/PyGlow
+#Requires IPAMClient library (not sure if separate install required)
 
 from imapclient import IMAPClient
 from PyGlow import PyGlow
