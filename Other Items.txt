@@ -1,0 +1,2 @@
+Email service library: http://imapclient.readthedocs.org/en/latest/
+If you use 2-factor auth for gmail: https://support.google.com/mail/answer/1173270?hl=en
