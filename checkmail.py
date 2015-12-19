@@ -20,7 +20,7 @@ MAIL_CHECK_FREQ = 60 # This value is in seconds
 # PyGlow Global Variables:
 b = 128
 s = 1000
-pyglow = PyGlow(brightness=int(b), speed=int(s), pulse=True, pulse_dir=UP) #pulse_dir=UP might have to be pulse_dir="UP"... if errors are thrown.
+pyglow = PyGlow(brightness=int(b), speed=int(s), pulse=True, pulse_dir=BOTH) #pulse_dir=BOTH might have to be pulse_dir="BOTH"... if errors are thrown.
 
 def loop():
     server = IMAPClient(HOSTNAME, use_uid=True, ssl=True)
