@@ -51,8 +51,11 @@ if __name__ == '__main__':
         print 'Press Ctrl-C to quit.'
         while True:
             loop()
-    finally:
-        GPIO.cleanup()
+#    finally:
+#        GPIO.cleanup()
+# Not sure what to do with the Finally + GPIO.cleanup yet...
+
+
 
 
 #The PyGlow() object can accept four optional parameters:
