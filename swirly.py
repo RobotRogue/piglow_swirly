@@ -1,5 +1,15 @@
+#Thanks for checking out my PiGlow code! https://github.com/RobotRogue
+
 import piglow
 from time import sleep
+
+# Future Changes:
+# Try to find a better way of performing this loop
+# Try to find a better way of addressing each LED, is there a way to simplify the below code?
+# Consider adding in functionality to turn on and turn off 
+# Cnce the code is running there is no way to shut off the LEDs unless you kill the process
+# Ideally there should be a way for the user to provide an input to stop the LED cycles
+# Once the user selects stop, there should be a command to turn off all the LEDs
 
 piglow.auto_update = True
 
