@@ -1,9 +1,10 @@
 #!/usr/bin/env python
+#This is intended to be used on a Raspberry Pi with the PiGlow hat
 #Code found on Adafruit.com @ https://learn.adafruit.com/raspberry-pi-e-mail-notifier-using-leds/overview
 #Requires PyGlow library: https://github.com/benleb/PyGlow
-#Requires IMAPClient library (not sure if separate install required)
+#Requires feedparser library (sudo pip install feedparser)
 
-from PyGlow import PyGlow
+import PyGlow
 import time
 import feedparser
 
@@ -51,18 +52,3 @@ if __name__ == '__main__':
             loop()
     finally:
         pyglow.all(0) #Kills all LEDs if you Ctrl-C the program.
-
-
-#The PyGlow() object can accept four optional parameters:
-
-# brightness=None - sets default brightness level (value: number from 0 and 255)
-# speed=None - sets default pulsing speed in milliseconds (value: number > 0)
-# pulse=None - enables pulsing by default (value: True or False)
-# pulse_dir=None - sets default pulsation direction (value: UP, DOWN, BOTH)
-
-#In order to be able to use PyGlow module, the PyGlow() class must be imported:
-#from PyGlow import PyGlow
-
-#Then it's possible to instantiate the PyGlow() object:
-#pyglow = PyGlow()
-
