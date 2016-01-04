@@ -5,7 +5,7 @@ from time import sleep
 
 piglow.auto_update = True
 
-slp = 0.01 #setting the sleep value to a variable to make changing it a lot easier.
+slp = 0.005 #setting the sleep value to a variable to make changing it a lot easier.
 br = 125 #brightness of the LEDs when they are on.
 
 # Addressing Each LED Syntax Below:
